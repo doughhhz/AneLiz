@@ -2,10 +2,14 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import sqlite3
 import datetime
+import os
 
 app = Flask(__name__)
 CORS(app)
-DB_NOME = 'agenda_aneliz.db'
+# Pega o caminho absoluto da pasta onde o app.py está
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+# Junta esse caminho com o nome do banco de dados
+DB_NOME = os.path.join(BASE_DIR, 'agenda_aneliz.db')
 
 def iniciar_banco():
     conn = sqlite3.connect(DB_NOME)

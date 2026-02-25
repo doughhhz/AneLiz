@@ -104,7 +104,7 @@ function renderizarCalendario() {
 // Busca os dias fechados antes de montar o calendário
 async function carregarDiasFechados() {
     try {
-        const resposta = await fetch('http://127.0.0.1:5000/dias-fechados');
+        const resposta = await fetch('https://doughhzz.pythonanywhere.com/dias-fechados');
         const dados = await resposta.json();
         diasFechadosGlobais = dados.dias_fechados;
         renderizarCalendario(); // Só renderiza depois de saber os dias fechados
@@ -137,7 +137,7 @@ async function buscarHorariosDisponiveis(data) {
     dicaHorario.textContent = "Buscando horários livres no sistema...";
 
     try {
-        const resposta = await fetch(`http://127.0.0.1:5000/horarios/${data}`);
+        const resposta = await fetch(`https://doughhzz.pythonanywhere.com/horarios/${data}`);
         const dados = await resposta.json();
         const horarios = dados.horarios; // Agora é uma lista de objetos
         
@@ -207,7 +207,7 @@ formAgendamento.addEventListener('submit', async (evento) => {
     }
 
     try {
-        const resposta = await fetch('http://127.0.0.1:5000/agendar', {
+        const resposta = await fetch('https://doughhzz.pythonanywhere.com/agendar', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(dadosFormulario)

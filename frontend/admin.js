@@ -1,4 +1,4 @@
-const urlBase = 'http://127.0.0.1:5000';
+const urlBase = 'https://doughhzz.pythonanywhere.com/';
 
 // Função para buscar os dados no Python
 async function carregarAgendamentos() {
