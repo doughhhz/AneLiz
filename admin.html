@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel da Ane | AneLiz Beauty</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fefae0;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .admin-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #d4a373;
+        }
+        h1 { color: #d4a373; margin: 0; }
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .card-agendamento {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-left: 5px solid #ccc; /* Cor padrão */
+        }
+        .card-agendamento.pendente { border-left-color: #f39c12; }
+        .card-agendamento.confirmado { border-left-color: #27ae60; }
+        .card-agendamento.recusado { border-left-color: #e74c3c; opacity: 0.6; }
+        
+        .cliente-nome { font-size: 18px; font-weight: 600; margin: 0 0 10px 0; }
+        .info-linha { margin: 5px 0; font-size: 14px; color: #555; }
+        .status-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+        .pendente .status-badge { background: #fdf2e9; color: #e67e22; }
+        .confirmado .status-badge { background: #e9f7ef; color: #27ae60; }
+        .recusado .status-badge { background: #fdedec; color: #e74c3c; }
+
+        .botoes-acao {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        button {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn-confirmar { background: #27ae60; color: white; }
+        .btn-confirmar:hover { background: #219653; }
+        .btn-recusar { background: #e74c3c; color: white; }
+        .btn-recusar:hover { background: #c0392b; }
+        .btn-whatsapp { background: #25D366; color: white; margin-top: 10px; width: 100%; display: block; text-align: center; text-decoration: none; padding: 10px 0; border-radius: 6px;}
+    </style>
+</head>
+<body>
+
+<div class="admin-container">
+    <div class="admin-header">
+        <h1>Painel de Gestão - AneLiz Beauty</h1>
+        <button onclick="carregarAgendamentos()" style="width: auto; background: #d4a373; color: white;">Actualizar Pedidos</button>
+    </div>
+
+    <div style="background: white; padding: 20px; border-radius: 12px; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+        <h3 style="margin-top: 0; color: #d4a373;">Bloquear um Dia na Agenda</h3>
+        <p style="font-size: 14px; color: #666;">Use para fechar a agenda em feriados, férias ou dias de folga.</p>
+        <div style="display: flex; gap: 15px; align-items: center;">
+            <input type="date" id="data-bloqueio" style="padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-family: 'Poppins';">
+            <button onclick="bloquearDiaAdmin()" style="background: #e74c3c; color: white; padding: 10px 20px; width: auto;">Confirmar Bloqueio</button>
+        </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 30px;">
+        
+        <div style="background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; border-bottom: 4px solid #27ae60;">
+            <h3 style="margin: 0; color: #666; font-size: 14px; text-transform: uppercase;">Faturamento do Mês</h3>
+            <p id="fat-mes" style="font-size: 28px; font-weight: bold; color: #27ae60; margin: 10px 0 0 0;">R$ 0,00</p>
+        </div>
+        
+        <div style="background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; border-bottom: 4px solid #d4a373;">
+            <h3 style="margin: 0; color: #666; font-size: 14px; text-transform: uppercase;">Faturamento Total (Base)</h3>
+            <p id="fat-total" style="font-size: 28px; font-weight: bold; color: #d4a373; margin: 10px 0 0 0;">R$ 0,00</p>
+        </div>
+        
+        <div style="background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; border-bottom: 4px solid #3498db;">
+            <h3 style="margin: 0; color: #666; font-size: 14px; text-transform: uppercase;">Clientes Confirmadas</h3>
+            <p id="total-clientes" style="font-size: 28px; font-weight: bold; color: #3498db; margin: 10px 0 0 0;">0</p>
+        </div>
+        
+    </div>
+
+    <div class="cards-grid" id="lista-agendamentos">
+        </div>
+</div>
+
+<script src="admin.js"></script>
+</body>
+</html>

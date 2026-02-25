@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AneLiz Beauty | Salão de Beleza</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+<body>
+    <div id="toast-container" class="toast-container"></div>
+
+    <header>
+        <img src="imagens/Gemini_Generated_Image_7psefs7psefs7pse (1) (1).svg" alt="Logo AneLiz Beauty" class="logo-img">
+
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
+        <nav>
+            <ul class="nav-list">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#galeria">Galeria</a></li>
+                <li><a href="#contato">Contato</a></li>
+                <li><a href="#agendamento" class="btn-header">Agendar Agora</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Realce a sua beleza natural</h1>
+            <p>Um espaço exclusivo para você cuidar de si mesma, com atendimento personalizado pela especialista Anelize.</p>
+            <a href="#agendamento" class="btn-agendar">Agende seu Horário</a>
+        </div>
+    </section>
+
+    <section id="servicos" class="servicos">
+        <h2 class="reveal">Nossos Serviços</h2>
+        
+        <div class="swiper servicos-swiper reveal">
+            <div class="swiper-wrapper">
+                
+                <div class="swiper-slide">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1599305090598-fe179d501227?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Corte de cabelo" class="card-img-top">
+                        <div class="card-content">
+                            <h3>Corte</h3>
+                            <p>Renove seu visual com um corte moderno, caimento perfeito e técnicas exclusivas.</p>
+                            <span class="preco">A partir de R$ 65,00</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="swiper-slide">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1617897903246-719242758050?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Mechas" class="card-img-top">
+                        <div class="card-content">
+                            <h3>Mechas</h3>
+                            <p>Técnicas avançadas de iluminação para um resultado natural, sofisticado e saudável.</p>
+                            <span class="preco">A partir de R$ 280,00</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="swiper-slide">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Selagem" class="card-img-top">
+                        <div class="card-content">
+                            <h3>Selagem</h3>
+                            <p>Tratamento térmico que sela as cutículas, reduz o volume e devolve o brilho intenso.</p>
+                            <span class="preco">A partir de R$ 180,00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Progressiva" class="card-img-top">
+                        <div class="card-content">
+                            <h3>Progressiva</h3>
+                            <p>Fios perfeitamente lisos, alinhados e sem frizz com produtos de altíssima qualidade.</p>
+                            <span class="preco">A partir de R$ 180,00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Escova" class="card-img-top">
+                        <div class="card-content">
+                            <h3>Escova</h3>
+                            <p>Finalização impecável, seja lisa ou modelada, para o seu dia a dia ou eventos especiais.</p>
+                            <span class="preco">A partir de R$ 40,00</span>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="swiper-slide">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Tintura" class="card-img-top">
+                        <div class="card-content">
+                            <h3>Tintura</h3>
+                            <p>Cores vibrantes, cobertura perfeita dos fios brancos e proteção da fibra capilar.</p>
+                            <span class="preco">A partir de R$ 90,00</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <section id="galeria" class="galeria">
+        <h2 class="reveal">Nossos Trabalhos</h2>
+        <p class="subtitulo-galeria">Inspire-se com algumas das nossas transformações</p>
+        
+        <div class="galeria-grid">
+            <div class="galeria-item reveal delay-1">
+                <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Cabelo loiro com mechas">
+            </div>
+            <div class="galeria-item reveal delay-2">
+                <img src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Corte moderno">
+            </div>
+            <div class="galeria-item reveal delay-3">
+                <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Tratamento capilar">
+            </div>
+            <div class="galeria-item reveal delay-4">
+                <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Escova modelada">
+            </div>
+            <div class="galeria-item reveal delay-5">
+                <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Coloração ruiva">
+            </div>
+            <div class="galeria-item reveal delay-6">
+                <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Penteado elegante">
+            </div>
+        </div>
+    </section>
+
+    <section class="glow-up">
+        <h2 class="reveal">Glow Up ✨</h2>
+        <p class="subtitulo-galeria reveal">Arraste a linha para os lados e veja a transformação</p>
+        
+        <div class="comparacao-container reveal">
+            <img src="imagens/WhatsApp Image 2026-02-24 at 12.23.10.jpeg" alt="Antes" class="img-antes">
+            
+            <div class="img-depois-wrapper">
+                <img src="imagens/WhatsApp Image 2026-02-24 at 12.23.11.jpeg" alt="Depois" class="img-depois">
+            </div>
+            
+            <input type="range" min="0" max="100" value="50" class="slider" id="glow-slider">
+            
+            <div class="slider-linha" id="slider-linha">
+                <div class="slider-botao">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8zm7-8a.5.5 0 0 1 .5.5v15a.5.5 0 0 1-1 0v-15A.5.5 0 0 1 8 0z"/>
+                        <path fill-rule="evenodd" d="M2.5 4.5a.5.5 0 0 1 .707 0L5 6.293V1.5a.5.5 0 0 1 1 0v8a.5.5 0 0 1-1 0V4.707L3.207 6.5a.5.5 0 0 1-.707-.707l2-2zM13.5 11.5a.5.5 0 0 1-.707 0L11 9.707V14.5a.5.5 0 0 1-1 0v-8a.5.5 0 0 1 1 0v4.793l1.793-1.793a.5.5 0 0 1 .707.707l-2 2z"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="avaliacoes" class="avaliacoes">
+        <div class="avaliacoes-header">
+            <h2 class="reveal">O que dizem nossas clientes</h2>
+            <div class="google-rating">
+                <span class="rating-texto">Excelente</span>
+                <div class="estrelas-header">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p>Baseado em avaliações do <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" class="google-logo-texto"></p>
+            </div>
+        </div>
+
+        <div class="swiper mySwiper reveal">
+            <div class="swiper-wrapper">
+                
+                <div class="swiper-slide">
+                    <div class="card-avaliacao">
+                       <div class="cliente-info">
+                            <div class="avatar" style="background-color: #f39c12;">M</div>
+                            <div class="cliente-detalhes"><h4>Mariana Costa</h4><span class="data-avaliacao">Há 2 semanas</span></div>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" class="g-icon" alt="Google">
+                        </div>
+                        <div class="estrelas-card">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <p>"A Anelize é maravilhosa! Fez minhas mechas e o resultado ficou incrível. Sem dúvidas a melhor profissional de Curitiba."</p>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="card-avaliacao">
+                        <div class="cliente-info">
+                            <div class="avatar" style="background-color: #8e44ad;">J</div>
+                            <div class="cliente-detalhes"><h4>Juliana Mendes</h4><span class="data-avaliacao">Há 1 mês</span></div>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" class="g-icon" alt="Google">
+                        </div>
+                        <div class="estrelas-card">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <p>"Atendimento impecável! Meu corte ficou exatamente como eu pedi, com um caimento perfeito. Recomendo!"</p>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="card-avaliacao">
+                        <div class="cliente-info">
+                            <div class="avatar" style="background-color: #16a085;">C</div>
+                            <div class="cliente-detalhes"><h4>Camila Rodrigues</h4><span class="data-avaliacao">Há 2 meses</span></div>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" class="g-icon" alt="Google">
+                        </div>
+                        <div class="estrelas-card">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <p>"Fiz uma hidratação profunda e o resultado durou semanas. O cuidado que ela tem é um diferencial enorme."</p>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="card-avaliacao">
+                        <div class="cliente-info">
+                            <div class="avatar" style="background-color: #e74c3c;">P</div>
+                            <div class="cliente-detalhes"><h4>Patrícia Lima</h4><span class="data-avaliacao">Há 3 semanas</span></div>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" class="g-icon" alt="Google">
+                        </div>
+                        <div class="estrelas-card">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <p>"Ambiente super aconchegante e a Anelize é uma querida. Amei meu dia de beleza, saí me sentindo renovada!"</p>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="card-avaliacao">
+                        <div class="cliente-info">
+                            <div class="avatar" style="background-color: #2980b9;">B</div>
+                            <div class="cliente-detalhes"><h4>Bruna Souza</h4><span class="data-avaliacao">Há 4 meses</span></div>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" class="g-icon" alt="Google">
+                        </div>
+                        <div class="estrelas-card">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <p>"Profissional excelente, usa produtos de altíssima qualidade. Meu loiro nunca esteve tão saudável."</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <a href="https://wa.me/5541996272202?text=Olá,%20Anelize!%20Gostaria%20de%20agendar%20um%20horário." class="whatsapp-btn" target="_blank" rel="noopener noreferrer">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Falar no WhatsApp" class="wa-icon">
+    </a>
+
+    <section id="agendamento" class="agendamento">
+        <div class="agendamento-container reveal">
+            <div class="agendamento-info">
+                <h2>Reserve seu momento</h2>
+                <p>Escolha o serviço, a data e o melhor horário para você. Mal podemos esperar para realçar sua beleza!</p>
+            </div>
+
+            <form class="formulario-agendamento" id="form-agendamento">
+                <div class="form-grupo">
+                    <input type="text" id="nome" placeholder="Seu Nome Completo" required>
+                </div>
+                <div class="form-grupo">
+                    <input type="tel" id="whatsapp" placeholder="Seu WhatsApp (com DDD)" required>
+                </div>
+                <div class="form-grupo">
+                    <select id="servico" required>
+                        <option value="" disabled selected>Selecione o Serviço desejado</option>
+                        <option value="corte">Corte</option>
+                        <option value="mechas">Mechas</option>
+                        <option value="selagem">Selagem</option>
+                        <option value="progressiva">Progressiva</option>
+                        <option value="escova">Escova</option>
+                        <option value="tintura">Tintura</option>
+                    </select>
+                </div>
+
+                <div class="form-grupo">
+                    <label>Escolha a Data:</label>
+                    <div class="calendario-customizado">
+                        <div class="calendario-header">
+                            <button type="button" id="btn-prev-mes" class="btn-mes">&#10094;</button>
+                            <h4 id="mes-ano-display">Mês Ano</h4>
+                            <button type="button" id="btn-next-mes" class="btn-mes">&#10095;</button>
+                        </div>
+                        <div class="dias-semana">
+                            <span>Dom</span><span>Seg</span><span>Ter</span><span>Qua</span><span>Qui</span><span>Sex</span><span>Sáb</span>
+                        </div>
+                        <div class="dias-grid" id="dias-grid"></div>
+                    </div>
+                    <input type="hidden" id="data-selecionada" required>
+                </div>
+
+                <div class="horarios-container" id="horarios-container">
+                    <p class="dica-horario">Selecione uma data para ver os horários disponíveis.</p>
+                    <div class="grade-horarios" id="grade-horarios"></div>
+                </div>
+                
+                <input type="hidden" id="horario-selecionado" required>
+
+                <button type="submit" class="btn-agendar-submit">Confirmar Agendamento</button>
+            </form>
+        </div>
+    </section>
+
+    <footer id="contato" class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3 class="footer-logo">AneLiz Beauty</h3>
+                <p>Realçando a sua beleza natural com um atendimento exclusivo e totalmente personalizado.</p>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Navegação</h4>
+                <ul>
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#galeria">Galeria</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Contato</h4>
+                <p>WhatsApp: (41) 99627-2202</p>
+                <p>Curitiba - PR</p>
+                <p>Atendimento exclusivo com hora marcada.</p>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Siga-nos</h4>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/anelizepolak?igsh=OTh6eTB5amhuMGo1" target="_blank">Instagram</a>
+                    <a href="#" target="_blank">Facebook</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 AneLiz Beauty. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script src="script.js"></script>
+</body>
+</html>

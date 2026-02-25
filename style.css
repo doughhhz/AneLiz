@@ -1,0 +1,1010 @@
+html {
+    scroll-behavior: smooth !important;
+}
+
+/* Variáveis de Cores e Fontes */
+:root {
+    --primary-color: #d4a373; /* Tom de dourado/rose gold */
+    --bg-color: #fefae0; /* Fundo creme claro e acolhedor */
+    --text-color: #333333;
+    --font-title: 'Playfair Display', serif;
+    --font-text: 'Poppins', sans-serif;
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-text);
+    color: var(--text-color);
+    background-color: #ffffff;
+}
+
+/* Atualização do Cabeçalho para o Efeito Transparente */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    /* Fundo creme com 85% de opacidade */
+    background-color: rgba(254, 250, 224, 0.85); 
+    /* Efeito de desfoque no fundo (vidro jateado) */
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo-img {
+    height: 125px; /* Ajuste este valor para deixar a logo maior ou menor */
+    width: auto;
+    display: block;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    font-size: 15px;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--primary-color);
+}
+
+/* Estilo da Seção Principal (Hero) */
+.hero {
+    height: 85vh;
+    /* Imagem de placeholder temporária */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 0 20px;
+}
+
+.hero h1 {
+    font-family: var(--font-title);
+    font-size: 52px;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 35px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 300;
+}
+
+.btn-agendar {
+    display: inline-block;
+    padding: 15px 35px;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 30px; /* Botão arredondado mais feminino e moderno */
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.btn-agendar:hover {
+    background-color: #b5885a;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(212, 163, 115, 0.4);
+}
+
+/* Estilo da Seção de Serviços */
+.servicos {
+    padding: 80px 5%;
+    text-align: center;
+    background-color: #fafafa;
+}
+
+.servicos h2 {
+    font-family: var(--font-title);
+    font-size: 38px;
+    margin-bottom: 50px;
+    color: var(--primary-color);
+}
+
+.card {
+    /* Removemos o padding geral do card */
+    padding: 0; 
+    /* ... mantenha as outras propriedades do .card (background, radius, shadow) aqui ... */
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    width: 320px;
+    transition: transform 0.3s ease;
+    border-bottom: 4px solid transparent;
+    overflow: hidden; /* Garante que a imagem respeite as bordas arredondadas */
+}
+
+/* Nova regra para a imagem do serviço */
+.card-img-top {
+    width: 100%;
+    height: 180px; /* Altura fixa para padronizar */
+    object-fit: cover;
+    display: block;
+}
+
+/* Novo container para o texto dentro do card */
+.card-content {
+    padding: 30px;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-bottom: 4px solid var(--primary-color);
+}
+
+.card h3 {
+    font-family: var(--font-title);
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.card p {
+    font-size: 15px;
+    color: #777;
+    margin-bottom: 25px;
+    line-height: 1.6;
+    min-height: 50px;
+}
+
+.preco {
+    display: block;
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 20px;
+}
+
+/* --- Estilos do Menu Responsivo --- */
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--primary-color);
+    transition: all 0.3s ease;
+    border-radius: 3px;
+}
+
+/* Regras para telas menores (Celulares e Tablets) */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex; /* Mostra o botão no celular */
+    }
+
+    .nav-list {
+        position: absolute;
+        top: 100%; /* Fica logo abaixo do header */
+        left: -100%; /* Escondido fora da tela */
+        flex-direction: column;
+        background-color: rgba(254, 250, 224, 0.95);
+        backdrop-filter: blur(10px);
+        width: 100%;
+        text-align: center;
+        transition: all 0.4s ease;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+        padding: 20px 0;
+    }
+
+    .nav-list.active {
+        left: 0; /* Desliza para dentro da tela quando ativo */
+    }
+
+    nav ul li {
+        margin: 15px 0;
+    }
+
+    /* Animação do botão hambúrguer virando um "X" */
+    .menu-toggle.is-active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle.is-active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .menu-toggle.is-active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+/* --- Estilos da Galeria --- */
+.galeria {
+    padding: 80px 5%;
+    text-align: center;
+    background-color: var(--bg-color); /* Fundo creme contínuo */
+}
+
+.galeria h2 {
+    font-family: var(--font-title);
+    font-size: 38px;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.subtitulo-galeria {
+    margin-bottom: 40px;
+    color: #666;
+    font-style: italic;
+}
+
+.galeria-grid {
+    /* Mudamos de display: grid para display: flex */
+    display: flex;
+    /* Permite que os itens quebrem para a linha de baixo */
+    flex-wrap: wrap;
+    /* Centraliza os itens horizontalmente na linha */
+    justify-content: center;
+    /* Espaçamento entre os itens */
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto; /* Centraliza o bloco da galeria na página */
+}
+
+.galeria-item {
+    /* Define uma largura fixa para cada "cartão" de foto */
+    width: 280px;
+    /* Define uma altura fixa para manter o padrão */
+    height: 320px;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    /* Garante que o item não encolha ou estique demais */
+    flex-grow: 0;
+    flex-shrink: 0;
+    background-color: #fff; /* Fundo branco caso a imagem demore a carregar */
+}
+
+.galeria-item img {
+    width: 100%;
+    height: 100%; /* A imagem ocupa toda a altura do cartão */
+    object-fit: cover; /* Corta a imagem para preencher sem distorcer */
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+/* Efeito de zoom suave e elegante */
+.galeria-item:hover img {
+    transform: scale(1.1);
+}
+
+/* --- Estilos do Botão WhatsApp Flutuante --- */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25d366; /* Verde oficial do WhatsApp */
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    z-index: 2000; /* Fica acima de tudo no site */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: pulse 2s infinite; /* Efeito de pulsar */
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+}
+
+.wa-icon {
+    width: 35px;
+    height: 35px;
+}
+
+/* Animação de pulsação suave para chamar atenção */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* --- Estilos do Rodapé (Footer) --- */
+.footer {
+    background-color: #2b2b2b; /* Fundo cinza escuro elegante */
+    color: var(--bg-color); /* Usa a cor creme clara para o texto */
+    padding: 70px 5% 20px;
+    font-family: var(--font-text);
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que as colunas desçam no celular */
+    justify-content: space-between;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-bottom: 1px solid rgba(254, 250, 224, 0.1); /* Linha divisória sutil */
+    padding-bottom: 40px;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 220px; /* Garante que as colunas não fiquem espremidas */
+}
+
+.footer-logo {
+    font-family: var(--font-title);
+    color: var(--primary-color); /* Rose Gold */
+    font-size: 26px;
+    margin-bottom: 15px;
+}
+
+.footer-col h4 {
+    font-family: var(--font-title);
+    color: var(--primary-color);
+    font-size: 18px;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.footer-col p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #cccccc; /* Cinza claro para não cansar a leitura */
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 12px;
+}
+
+.footer-col ul li a {
+    text-decoration: none;
+    color: #cccccc;
+    font-size: 14px;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+/* Efeito bacana: o link vai um pouquinho para a direita ao passar o mouse */
+.footer-col ul li a:hover {
+    color: var(--primary-color);
+    padding-left: 5px; 
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.social-links a {
+    text-decoration: none;
+    color: #cccccc;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--primary-color);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 13px;
+    color: #888888;
+}
+
+/* --- Estilos do Glow Up (Antes e Depois) --- */
+.glow-up {
+    padding: 80px 5%;
+    text-align: center;
+    background-color: #fafafa;
+}
+
+.glow-up h2 {
+    font-family: var(--font-title);
+    font-size: 38px;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.comparacao-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px; /* Tamanho máximo da foto */
+    height: 450px;
+    margin: 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* A imagem de fundo (Antes) */
+.img-antes {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* O container da imagem da frente (Depois) */
+.img-depois-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%; /* Começa na metade */
+    height: 100%;
+    overflow: hidden;
+}
+
+.img-depois {
+    width: 800px; /* Deve ter a mesma largura máxima do container pai */
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* O input invisível que faz a mágica acontecer */
+.slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0; /* Invisível, mas clicável */
+    cursor: ew-resize; /* Cursor de arrastar para os lados */
+    z-index: 10;
+}
+
+/* A linha visual que divide as fotos */
+.slider-linha {
+    position: absolute;
+    top: 0;
+    left: 50%; /* Começa no meio */
+    width: 4px;
+    height: 100%;
+    background-color: white;
+    transform: translateX(-50%);
+    pointer-events: none; /* Ignora o clique, repassa para o input invisível */
+    z-index: 5;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+/* A bolinha no meio da linha */
+.slider-botao {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary-color);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+/* --- Estilos do Formulário de Agendamento --- */
+.agendamento {
+    padding: 80px 5%;
+    background-color: var(--bg-color);
+}
+
+.agendamento-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    display: flex;
+    overflow: hidden;
+    flex-wrap: wrap;
+}
+
+.agendamento-info {
+    flex: 1;
+    min-width: 300px;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.agendamento-info h2 {
+    font-family: var(--font-title);
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.agendamento-info p {
+    font-size: 16px;
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+.formulario-agendamento {
+    flex: 1.5;
+    min-width: 300px;
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-grupo input,
+.form-grupo select {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: var(--font-text);
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.form-grupo input:focus,
+.form-grupo select:focus {
+    border-color: var(--primary-color);
+}
+
+.form-grupo label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-color);
+    font-size: 14px;
+}
+
+/* Estilo da Grade de Horários */
+.horarios-container {
+    margin-top: 10px;
+}
+
+.dica-horario {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 15px;
+}
+
+.grade-horarios {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.btn-horario {
+    padding: 10px 15px;
+    border: 1px solid var(--primary-color);
+    background: white;
+    color: var(--primary-color);
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.btn-horario:hover {
+    background: #fdf5ef;
+}
+
+.btn-horario.selecionado {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn-agendar-submit {
+    margin-top: 20px;
+    padding: 18px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-agendar-submit:hover {
+    background-color: #b5885a;
+}
+
+/* --- Estilos do Calendário Customizado --- */
+.calendario-customizado {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: #fafafa;
+}
+
+.calendario-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.calendario-header h4 {
+    font-family: var(--font-title);
+    color: var(--primary-color);
+    font-size: 18px;
+    margin: 0;
+}
+
+.btn-mes {
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: color 0.2s;
+}
+
+.btn-mes:hover {
+    color: var(--primary-color);
+}
+
+.dias-semana {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-weight: 600;
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.dias-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.dia-cal {
+    aspect-ratio: 1; /* Mantém os dias quadradinhos */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: var(--text-color);
+}
+
+.dia-cal:hover:not(.vazio):not(.passado) {
+    background-color: #fdf5ef;
+    color: var(--primary-color);
+}
+
+.dia-cal.selecionado {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+}
+
+.dia-cal.vazio {
+    cursor: default;
+}
+
+.dia-cal.passado {
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+/* --- Notificações Customizadas (Toasts) --- */
+.toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.toast {
+    min-width: 280px;
+    padding: 16px 24px;
+    border-radius: 8px;
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    animation: slideInRight 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    font-family: var(--font-text);
+}
+
+.toast.sucesso {
+    background-color: var(--primary-color); /* Nosso Rose Gold */
+    border-left: 5px solid #b5885a;
+}
+
+.toast.erro {
+    background-color: #333333; /* Chumbo escuro para erro, chique e legível */
+    border-left: 5px solid #e74c3c;
+}
+
+/* Animações de entrada e saída */
+@keyframes slideInRight {
+    from { transform: translateX(120%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeOutRight {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(120%); opacity: 0; }
+}
+
+/* --- Estilos da Seção de Avaliações --- */
+.avaliacoes {
+    padding: 80px 5%;
+    background-color: #ffffff; /* Fundo branco para contrastar com as outras seções */
+    text-align: center;
+}
+
+.avaliacoes-header h2 {
+    font-family: var(--font-title);
+    font-size: 36px;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.google-rating {
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.rating-texto {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.estrelas-header, .estrelas-card {
+    color: #fbbc04; /* Amarelo oficial do Google */
+    font-size: 24px;
+    letter-spacing: 2px;
+}
+
+.google-logo-texto {
+    height: 22px;
+    vertical-align: middle;
+    margin-left: 5px;
+}
+
+.avaliacoes-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card-avaliacao {
+    background: #fff;
+    border: 1px solid #ebebeb;
+    border-radius: 12px;
+    padding: 30px;
+    width: 100%;
+    max-width: 350px;
+    text-align: left;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 10px auto;
+}
+
+.card-avaliacao:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.cliente-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    margin-right: 15px;
+}
+
+.cliente-detalhes h4 {
+    font-size: 16px;
+    color: var(--text-color);
+    margin: 0 0 2px 0;
+}
+
+.data-avaliacao {
+    font-size: 12px;
+    color: #777;
+}
+
+.g-icon {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 0;
+    top: 10px;
+}
+
+.estrelas-card {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.card-avaliacao p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #444;
+    font-style: italic;
+}
+
+/* --- Estilos do Swiper (Carrossel de Avaliações) --- */
+.swiper {
+    width: 100%;
+    max-width: 1200px; /* Garante que não fique esticado demais em telas gigantes */
+    margin: 0 auto;
+    padding: 20px 0 50px 0; /* Espaço para as sombras e bolinhas */
+    overflow: hidden !important;
+}
+
+.swiper-wrapper {
+    align-items: stretch; /* Força todos os cards a terem a mesma altura */
+}
+
+/* --- Correção Final do Swiper --- */
+.swiper-slide {
+    height: auto;
+    display: flex;
+    justify-content: center;
+    /* SEM nenhuma regra de width aqui, deixa o Swiper JS decidir! */
+}
+
+/* Cor das bolinhas de navegação (paginação) */
+.swiper-pagination-bullet-active {
+    background-color: var(--primary-color) !important;
+}
+
+/* Estilo do botão de horário "Em Disputa" (Agora é clicável!) */
+.btn-horario.concorrido {
+    background-color: #fdf2e9; 
+    color: #e67e22; 
+    border-color: #f8c471;
+    cursor: pointer; /* Permite o clique */
+    font-size: 13px;
+    transition: all 0.3s ease;
+}
+
+.btn-horario.concorrido:hover {
+    background-color: #e67e22;
+    color: white;
+}
+
+.btn-horario.concorrido.selecionado {
+    background-color: #d35400; /* Laranja mais escuro quando selecionado */
+    color: white;
+    border-color: #d35400;
+}
+
+/* Estilo do botão de horário "Confirmado/Reservado" */
+.btn-horario.confirmado {
+    background-color: #f5f5f5;
+    color: #999999;
+    border-color: #e0e0e0;
+    cursor: not-allowed;
+    text-decoration: line-through; /* Risco no texto */
+    font-size: 13px;
+    opacity: 0.7;
+}
+
+/* Estilo para dias fechados no calendário */
+.dia-cal.fechado {
+    color: #ff9999; /* Vermelho claro para indicar que não dá pra clicar */
+    cursor: not-allowed;
+    background-color: #fffafa;
+}
+
+/* --- Novo Botão no Cabeçalho --- */
+.btn-header {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+    padding: 10px 24px;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(212, 163, 115, 0.4);
+    margin-left: 15px; /* Dá um espacinho dos outros links */
+}
+
+.btn-header:hover {
+    background-color: #b5885a !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(212, 163, 115, 0.6);
+}
+
+/* Ajuste para o botão não ficar estranho no menu do celular */
+@media (max-width: 768px) {
+    .btn-header {
+        display: inline-block;
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}
+
+.servicos-swiper .card {
+    width: 100%; 
+    max-width: 320px; 
+    margin: 10px auto; 
+}
+
+/* --- Efeito de Surgimento (Scroll Reveal) --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out; /* 0.8s é o tempo da animação. Fica bem suave. */
+}
+
+/* O JavaScript vai adicionar esta classe quando a pessoa chegar na seção */
+.reveal.ativo {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Opcional: Atraso em cascata para itens juntos (ex: Galeria) aparecerem um por um */
+.reveal.delay-1 { transition-delay: 0.1s; }
+.reveal.delay-2 { transition-delay: 0.2s; }
+.reveal.delay-3 { transition-delay: 0.3s; }
