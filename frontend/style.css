@@ -335,47 +335,48 @@ nav a:hover {
 
 /* --- Estilos do Rodapé (Footer) --- */
 .footer {
-    background-color: #2b2b2b; /* Fundo cinza escuro elegante */
-    color: var(--bg-color); /* Usa a cor creme clara para o texto */
-    padding: 70px 5% 20px;
+    background-color: #2b2b2b; 
+    color: var(--bg-color); 
+    padding: 40px 5% 15px; /* Reduzido de 70px para 40px no topo */
     font-family: var(--font-text);
 }
 
 .footer-container {
     display: flex;
-    flex-wrap: wrap; /* Permite que as colunas desçam no celular */
+    flex-wrap: wrap; 
     justify-content: space-between;
-    gap: 40px;
+    gap: 20px; /* Reduzido de 40px para 20px */
     max-width: 1200px;
     margin: 0 auto;
-    border-bottom: 1px solid rgba(254, 250, 224, 0.1); /* Linha divisória sutil */
-    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(254, 250, 224, 0.1); 
+    padding-bottom: 25px; /* Reduzido de 40px para 25px */
 }
 
 .footer-col {
     flex: 1;
-    min-width: 220px; /* Garante que as colunas não fiquem espremidas */
+    min-width: 220px; 
 }
 
 .footer-logo {
     font-family: var(--font-title);
-    color: var(--primary-color); /* Rose Gold */
-    font-size: 26px;
-    margin-bottom: 15px;
+    color: var(--primary-color); 
+    font-size: 24px; /* Levemente menor */
+    margin-bottom: 10px;
 }
 
 .footer-col h4 {
     font-family: var(--font-title);
     color: var(--primary-color);
-    font-size: 18px;
-    margin-bottom: 20px;
+    font-size: 17px;
+    margin-bottom: 12px; /* Reduzido de 20px para 12px */
     letter-spacing: 1px;
 }
 
 .footer-col p {
-    font-size: 14px;
-    line-height: 1.8;
-    color: #cccccc; /* Cinza claro para não cansar a leitura */
+    font-size: 13px; /* Reduzido de 14px para 13px */
+    line-height: 1.5; /* Reduzido de 1.8 para 1.5 para juntar as linhas */
+    color: #cccccc; 
+    margin-bottom: 8px; /* Espaço entre os parágrafos */
 }
 
 .footer-col ul {
@@ -383,17 +384,16 @@ nav a:hover {
 }
 
 .footer-col ul li {
-    margin-bottom: 12px;
+    margin-bottom: 8px; /* Reduzido de 12px para 8px */
 }
 
 .footer-col ul li a {
     text-decoration: none;
     color: #cccccc;
-    font-size: 14px;
+    font-size: 13px;
     transition: color 0.3s ease, padding-left 0.3s ease;
 }
 
-/* Efeito bacana: o link vai um pouquinho para a direita ao passar o mouse */
 .footer-col ul li a:hover {
     color: var(--primary-color);
     padding-left: 5px; 
@@ -402,13 +402,13 @@ nav a:hover {
 .social-links {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 8px; /* Reduzido de 12px para 8px */
 }
 
 .social-links a {
     text-decoration: none;
     color: #cccccc;
-    font-size: 14px;
+    font-size: 13px;
     transition: color 0.3s ease;
 }
 
@@ -418,8 +418,8 @@ nav a:hover {
 
 .footer-bottom {
     text-align: center;
-    padding-top: 20px;
-    font-size: 13px;
+    padding-top: 15px; /* Reduzido de 20px para 15px */
+    font-size: 12px; /* Menorzinho */
     color: #888888;
 }
 
