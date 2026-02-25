@@ -4,7 +4,6 @@ const navList = document.querySelector('.nav-list');
 const glowSlider = document.getElementById('glow-slider');
 const imgDepoisWrapper = document.querySelector('.img-depois-wrapper');
 const sliderLinha = document.getElementById('slider-linha');
-const inputData = document.getElementById('data');
 const inputWhatsapp = document.getElementById('whatsapp');
 
 inputWhatsapp.addEventListener('input', function (e) {
@@ -30,11 +29,16 @@ const observerReveal = new IntersectionObserver((entradas) => {
             
             // A MÁGICA AQUI: Força os carrosséis a recalcularem o tamanho quando surgem na tela!
             setTimeout(() => {
-                if (typeof swiper !== 'undefined') swiper.update();
-                if (typeof swiperServicos !== 'undefined') swiperServicos.update();
-            }, 300); // Aguarda 0.3s (metade da animação) e recalcula
+                if (typeof swiper !== 'undefined') {
+                    swiper.update();
+                    swiper.updateSize(); // Força o recálculo da largura
+                }
+                if (typeof swiperServicos !== 'undefined') {
+                    swiperServicos.update();
+                    swiperServicos.updateSize(); // Força o recálculo da largura
+                }
+            }, 400); // Aumentei um pouquinho o tempo para a animação dar espaço aos cards
             
-            // observerReveal.unobserve(entrada.target); // Opcional: parar de observar depois que aparecer
         }
     });
 }, {
@@ -269,41 +273,6 @@ glowSlider.addEventListener('input', (evento) => {
     // Atualiza a largura da foto de cima e a posição da linha
     imgDepoisWrapper.style.width = `${valorSlider}%`;
     sliderLinha.style.left = `${valorSlider}%`;
-});
-
-// Horários fictícios (No futuro, o Python vai enviar isso pro JS)
-const horariosDisponiveis = ['09:00', '10:30', '14:00', '15:30', '17:00'];
-
-inputData.addEventListener('change', () => {
-    // Limpa os horários anteriores
-    gradeHorarios.innerHTML = '';
-    inputHorarioSelecionado.value = '';
-    
-    if(inputData.value) {
-        dicaHorario.textContent = "Selecione um horário:";
-        
-        // Cria um botão para cada horário disponível
-        horariosDisponiveis.forEach(hora => {
-            const btn = document.createElement('button');
-            btn.type = 'button'; // Evita que o botão envie o formulário
-            btn.classList.add('btn-horario');
-            btn.textContent = hora;
-            
-            // Lógica de clicar no horário
-            btn.addEventListener('click', () => {
-                // Remove a classe 'selecionado' de todos os botões
-                document.querySelectorAll('.btn-horario').forEach(b => b.classList.remove('selecionado'));
-                
-                // Adiciona a classe 'selecionado' no botão clicado
-                btn.classList.add('selecionado');
-                
-                // Salva o valor no input oculto para enviar pro banco de dados depois
-                inputHorarioSelecionado.value = hora;
-            });
-            
-            gradeHorarios.appendChild(btn);
-        });
-    }
 });
 
 // --- Função de Notificação Customizada ---
